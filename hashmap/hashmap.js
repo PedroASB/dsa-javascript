@@ -12,12 +12,10 @@ class HashMap {
   #length;
   #capacity;
   #loadFactor;
-  #threshold;
 
   constructor(capacity = 16, loadFactor = 0.75) {
     this.#capacity = capacity;
     this.#loadFactor = loadFactor;
-    this.#threshold = capacity * loadFactor;
     this.#buckets = new Array(capacity);
     this.#length = 0;
   }
@@ -31,6 +29,17 @@ class HashMap {
     }
 
     return hashCode;
+  }
+
+  #rehash() {
+    const entries = this.entries();
+
+    this.#capacity *= 2;
+    this.clear();
+
+    for (const [key, value] of entries) {
+      this.set(key, value);
+    }
   }
 
   set(key, value) {
@@ -55,6 +64,10 @@ class HashMap {
     const newNode = new Node(key, value, this.#buckets[index] || null);
     this.#buckets[index] = newNode;
     this.#length++;
+
+    if (this.#length > this.#capacity * this.#loadFactor) {
+      this.#rehash();
+    }
   }
 
   get(key) {
