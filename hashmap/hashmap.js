@@ -7,7 +7,7 @@ class Node {
 }
 
 class HashMap {
-  /* This HashMap only handle keys of type string */
+  /* This HashMap only handles keys of type string */
   #buckets;
   #length;
   #capacity;
