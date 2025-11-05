@@ -12,8 +12,8 @@ const samePositions = ([x1, y1], [x2, y2]) => x1 === x2 && y1 === y2;
 const X_AXIS = 0;
 const Y_AXIS = 1;
 
-// all possible steps for a knight
-const step = [
+// all possible moves for a knight
+const movements = [
   /* x-axis */ [-2, -1, 1, 2, 2, 1, -1, -2],
   /* y-axis */ [1, 2, 2, 1, -1, -2, -2, -1],
 ];
@@ -62,8 +62,8 @@ function knightMoves(startPosition, endPosition) {
     }
 
     for (let i = 0; i < 8; i++) {
-      const x = currentPosition[X_AXIS] + step[X_AXIS][i];
-      const y = currentPosition[Y_AXIS] + step[Y_AXIS][i];
+      const x = currentPosition[X_AXIS] + movements[X_AXIS][i];
+      const y = currentPosition[Y_AXIS] + movements[Y_AXIS][i];
 
       if (isValidPosition([x, y]) && !visitedPositions.has(makeKey([x, y]))) {
         queue.push([x, y]);
