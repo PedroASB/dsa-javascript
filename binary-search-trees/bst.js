@@ -221,6 +221,17 @@ class BinarySearchTree {
     return edges;
   }
 
+  isBalanced(node = this.root) {
+    if (node === null) return true;
+
+    const leftSubtreeHeight = this.#calculateHeight(node.left);
+    const rightSubtreeHeight = this.#calculateHeight(node.right);
+
+    if (Math.abs(leftSubtreeHeight - rightSubtreeHeight) > 1) return false;
+
+    return this.isBalanced(node.left) && this.isBalanced(node.right);
+  }
+
   rebalance() {
     const treeValues = [];
     this.preOrderForEach((node) => {
