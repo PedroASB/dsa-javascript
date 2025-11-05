@@ -1,6 +1,6 @@
 /**
  * Solution to Knights Travails problem
- * The problem description is at knights-travails/description.txt
+ * The problem description is at knights-travails/README.md
  */
 
 // check if the position is valid on a 8x8 chess board
