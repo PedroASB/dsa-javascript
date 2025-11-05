@@ -33,4 +33,3 @@ console.log('LENGTH:', hashMap.length(), '\n');
 console.log('\n====== HASH SET ======');
 console.log(hashSet.toString());
 console.log('LENGTH:', hashSet.length(), '\n');
-
